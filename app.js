@@ -26,7 +26,18 @@ app.post("/signin", (req, res) => {
     res.json({ "status": "success" })
 })
 
+app.post("/view", (req, res) => {
+    usermodel.find().then(
+        (data) => {
+            res.json(data)
+        }
+    ).catch(
+        (error) => {
+            res.json(error)
+        }
+    )
 
+})
 
 app.listen(8080, () => {
     console.log("server started")
