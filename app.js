@@ -18,6 +18,16 @@ app.post("/signup", (req, res) => {
     res.json({ "status": "success" })
 })
 
+app.post("/signin", (req, res) => {
+    let input = req.body
+    let user = new usermodel(input)
+    user.save()
+    console.log(user)
+    res.json({ "status": "success" })
+})
+
+
+
 app.listen(8080, () => {
     console.log("server started")
 }
